@@ -1,0 +1,37 @@
+.container1 {
+  padding: 20px;
+  text-align: justify;
+  margin-left: 6rem;
+  margin-right: 7rem;
+}
+
+.story-card {
+  display: flex;
+  align-items: left;
+}
+
+.story-image {
+  max-width: 400px;
+  margin-right: 20px;
+}
+
+.container2 {
+  background-color: #ebf7fa;
+  text-align: justify;
+}
+
+.custom-container {
+  margin-left: 6rem;
+  margin-right: 7rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.container3 {
+  text-align: justify;
+  margin-top: 10px;
+  margin-left: 6rem;
+  margin-right: 7rem;
+}
+
+

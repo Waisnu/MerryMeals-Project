@@ -1,0 +1,53 @@
+.toast-position {
+    top: 8rem !important;
+}
+
+/* Page Not Found CSS */
+.page-not-found h1{
+  color: #f0f0f0;
+  font-size: 300px;
+  padding: 30px 0;
+  display: block;
+}
+
+.page-not-found h2{
+  color:#198754;
+  font-size: 60px;
+  padding-bottom: 10px;
+}
+
+.page-not-found h3{
+  color:#2c2c2c;
+}
+
+.page-not-found .error-link{
+  text-decoration: none;
+  color:#198754;
+}
+
+.page-not-found .error-link:hover{
+  opacity: .8;
+}
+
+/* Profile Style */
+.profile-image{
+  width: 150px;
+}
+
+.profile{
+  text-align: left !important;
+}
+
+.table-rounded {
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.loginpage{
+  min-height: 70vh;
+  width: 100%;
+  background: url("../src/image/loginpageB.svg");
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}

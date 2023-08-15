@@ -1,0 +1,17 @@
+
+.card-title {
+    background-color: white;
+    margin-bottom: 0;
+    
+}
+
+.card-text {
+    background-color: white;
+    margin-bottom: 0;
+}
+
+.card-img-overlay {
+    width: 35rem;
+    margin-left: 4rem;
+    margin-top: 2rem;
+}

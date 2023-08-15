@@ -1,0 +1,19 @@
+#custom-container1 {
+    background-color: white;
+    border-radius: 5px;
+    height: auto;
+    margin-top: 2rem;
+    
+}
+
+#custom-column1 {
+    margin-top: 1rem;
+    text-align: center;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+#payment-form {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
