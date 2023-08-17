@@ -17,7 +17,7 @@ const MenuComponent = () => {
     menuData();
   }, []);
 
-  return (
+  return (  
     <Container>
       <h1 className="mt-3 py-3">MEAL MENU</h1>
       <Row className="justify-content-center">
