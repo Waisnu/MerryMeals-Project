@@ -37,6 +37,11 @@ export class HeaderComponent extends Component {
                     Donate
                   </a>
                 </li>
+                <li>
+                  <a href="/servicecenter" class="navbar-link">
+                    Service Centers
+                  </a>
+                </li>
                 {this.props.role === "ROLE_ADMIN" && (
                   <li>
                     <a href="/admindashboard" class="navbar-link">

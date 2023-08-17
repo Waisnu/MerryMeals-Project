@@ -11,8 +11,8 @@ const AdminDashboard = (props) => {
 
   return (
     <div>
-          <div class="container-fluid">
-        <div class="row">
+    <div class="container-fluid">
+        <div class="row mar">
             <div class="col-3 sidebar">
                 {/* <!-- Sidebar menu --> */}
                 <ul class="nav flex-column nav-pills" id="v-pills-tab" role="tablist">

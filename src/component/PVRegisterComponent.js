@@ -17,11 +17,17 @@ import { volunteerRegister } from "../service/PVRegisterService";
 import locationService from "../service/LocationService";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import '../App.css';
 
-const RegistrationForm = (props) => {
+
+  const RegistrationForm = (props) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [address, setAddress] = useState("");
+  const [city, setCity] = useState("");
+  const [country, setCountry] = useState("");
+  const [postalCode, setPostalCode] = useState("");
+  const [barangay, setBarangay] = useState("");
   const [email, setEmail] = useState("");
   const [contactNumber, setContactNumber] = useState("");
   const [dob, setDob] = useState("");
@@ -81,14 +87,15 @@ const RegistrationForm = (props) => {
     }
   };
 
-  const getCoordinates = (address) => {
+  const getCoordinates = (address, city, country, postalCode, barangay) => {
+    var fullAddress = `${address}, ${barangay}, ${city}, ${country}, ${postalCode}`;
     var geocoder = new window.google.maps.Geocoder();
-    geocoder.geocode({ address: address }, (results, status) => {
+    geocoder.geocode({ address: fullAddress }, (results, status) => {
       if (status === "OK") {
         var location = results[0].geometry.location;
         var latitude = location.lat();
         var longitude = location.lng();
-
+  
         setValidLocation(true);
         setLocationError(false);
         setLatitude(latitude);
@@ -100,10 +107,12 @@ const RegistrationForm = (props) => {
       }
     });
   };
+  
 
   return (
+    <section class="registerpage">
     <Container>
-      <Row className="justify-content-center">
+      <Row className="justify-content-center mar">
         <Col xs={12} sm={10} md={8}>
           <Card className="shadow registration-card">
             <h1>Volunteer Application</h1>
@@ -135,17 +144,58 @@ const RegistrationForm = (props) => {
               </Row>
               <br />
               <Form.Group controlId="address">
-                <Form.Control
-                  type="text"
-                  placeholder="Address"
-                  value={address}
-                  onChange={(e) => setAddress(e.target.value)}
-                  onBlur={(e) => getCoordinates(e.target.value)}
-                  isInvalid={locationError}
-                  isValid={validLocation}
-                  required
-                />
-              </Form.Group>
+  <Form.Control
+    type="text"
+    placeholder="Full Address"
+    value={address}
+    onChange={(e) => setAddress(e.target.value)}
+    onBlur={(e) => getCoordinates(address, city, country, postalCode, barangay)}
+    isInvalid={locationError}
+    isValid={validLocation}
+    required
+  />
+</Form.Group>
+<br></br>
+<Form.Group controlId="country">
+  <Form.Control
+    type="text"
+    placeholder="Country"
+    value={country}
+    onChange={(e) => setCountry(e.target.value)}
+    required
+  />
+</Form.Group>
+<br></br>
+<Form.Group controlId="city">
+  <Form.Control
+    type="text"
+    placeholder="City"
+    value={city}
+    onChange={(e) => setCity(e.target.value)}
+    required
+  />
+</Form.Group>
+<br></br>
+<Form.Group controlId="barangay">
+  <Form.Control
+    type="text"
+    placeholder="Barangay"
+    value={barangay}
+    onChange={(e) => setBarangay(e.target.value)}
+    required
+  />
+</Form.Group>
+<br></br>
+<Form.Group controlId="postalCode">
+  <Form.Control
+    type="text"
+    placeholder="Postal Code"
+    value={postalCode}
+    onChange={(e) => setPostalCode(e.target.value)}
+    required
+  />
+</Form.Group>
+
               <br />
               <Row>
                 <Col>
@@ -273,6 +323,7 @@ const RegistrationForm = (props) => {
         </Col>
       </Row>
     </Container>
+    </section>
   );
 };
 

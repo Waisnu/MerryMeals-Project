@@ -51,3 +51,21 @@
   background-size: cover;
   position: relative;
 }
+
+.membersignup{
+  min-height: 70vh;
+  width: 100%;
+  background: url("../src/image/loginpageB.svg");
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+
+.registerpage{
+  min-height: 70vh;
+  width: 100%;
+  background: url("../src/image/loginpageB.svg");
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
