@@ -4,6 +4,7 @@ import CarouselComponent from './CarouselComponent';
 import TestimonialComponent from './TestimonialComponent';
 //import purpose from '../image/purpose.jpg'
 //import news from '../image/news.jpg'
+import '../App.css';
 
 export class HomeComponent extends Component {
   render() {
