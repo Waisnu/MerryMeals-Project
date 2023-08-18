@@ -8,7 +8,13 @@ class VolunteerService{
     getVolunteerById(volunteerId){
         return axios.get(API_BASE_URL + "volunteer/" + volunteerId);
     }
+    deleteVolunteer(volunteerId){
+        return axios.delete(API_BASE_URL + "volunteer/" + volunteerId);
+    }
 
+    updateVolunteer(volunteerId, volunteer){
+        return axios.put(API_BASE_URL + "volunteer/update/" + volunteerId, volunteer);
+    }
 }
 
 const volunteerService = new VolunteerService()
