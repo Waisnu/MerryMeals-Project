@@ -17,7 +17,7 @@ const CarouselComponent = () => {
         />
         <Carousel.Caption className="d-flex flex-column align-items-start">
           <h3 className="fs-1">PROTECT SENIORS NATIONWIDE</h3>
-          <p className="fs-5">Help seniors like Sophia age with<br></br> dignity and without fear of hunger.</p>
+          <p className="fs-5 white-text">Help seniors like Sophia age with<br></br>dignity and without fear of hunger.</p>
           <a type="button" href='/donate' class="btn btn-info fs-5 fw-bold text-light">GIVE NOW</a><br></br><br></br><br></br><br></br><br></br>
         </Carousel.Caption>
       </Carousel.Item>
@@ -29,7 +29,7 @@ const CarouselComponent = () => {
         />
         <Carousel.Caption className="d-flex flex-column align-items-start">
           <h3 className="fs-1">JOIN US NOW!</h3>
-          <p className="fs-5">Join us in the mission to bring meals,<br></br> hope, and support to those in need.</p>
+          <p className="fs-5 white-text">Join us in the mission to bring meals,<br></br> hope, and support to those in need.</p>
           <Link to="/destination">
           <button type="button" class="btn btn-info fs-5 fw-bold text-light">LEARN MORE</button><br></br><br></br><br></br><br></br><br></br>
           </Link>
