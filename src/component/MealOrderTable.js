@@ -3,6 +3,7 @@ import orderService from '../service/OrderService'
 import memberService from '../service/MemberService'
 import { withRouter } from 'react-router-dom';
 
+
 export class MealOrderTable extends Component {
   constructor(props) {
     super(props);
@@ -24,8 +25,23 @@ export class MealOrderTable extends Component {
       .catch((error) => {
         console.log(error);
       });
+
   }
 
+  getOrder(mealOrderId){
+    this.props.history.push(`order/member/${mealOrderId}`)
+    window.location.reload();
+   }
+
+   deleteMealOrder(mealOrderId){
+    orderService.deleteOrder(mealOrderId)
+    .then( response =>{
+    this.setState({
+      mealOrders: this.state.mealOrders.filter(mealOrder => mealOrder.mealOrderId !== mealOrderId)
+    })
+    this.props.history.push("/mealOrders");
+  })
+  }
 
   render() {
     return (

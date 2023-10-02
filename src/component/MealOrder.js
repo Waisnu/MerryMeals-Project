@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Container, Col, Row, Form, Card, Button, Modal } from "react-bootstrap";
 import mealService from "../service/MealService";
 import MealOrderMap from "./MealOrderMap"; // MAPA=
+import orderService from "../service/OrderService";
+import { toast } from "react-toastify";
 import { calculateDistance } from "./distanceUtil"; // ALGORITHM PARA SA LATITUDE + LONGTITUDE
 
 
@@ -66,10 +68,10 @@ const MealOrder = (props) => {
     
     event.preventDefault();
     setMondayMeal("");
-  setTuesdayMeal("");
-  setWednesdayMeal("");
-  setThursdayMeal("");
-  setFridayMeal("");
+    setTuesdayMeal("");
+    setWednesdayMeal("");
+    setThursdayMeal("");
+    setFridayMeal("");
     
     const currentMember = currentUser.memberId;
     const mealData = {
@@ -81,7 +83,16 @@ const MealOrder = (props) => {
       fridayMeal,
     };
 
-    
+    orderService
+      .saveOrder(mealData)
+      .then((response) => {
+        toast.success(response.data.message);
+      })
+      .catch((error) => {
+        toast.error(
+          error.message || "Oops! Something went wrong. Please try again!"
+        );
+      });
     
 
     

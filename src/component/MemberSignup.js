@@ -275,7 +275,7 @@ const RegistrationForm = (props) => {
                     <Form.Control
                       type="text"
                       value={serviceCenter}
-                      disabled
+                      di
                       style={{
                         fontWeight: "bold",
                         color: "green",

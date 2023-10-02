@@ -13,9 +13,12 @@ class OrderService{
     viewMealOrders() {
         return axios.get(API_BASE_URL + "order/all");
     }
+
+    deleteOrder(mealOrderId){
+        return axios.delete(API_BASE_URL + "order/" + mealOrderId)
+    }
 }
 
 const orderService = new OrderService()
 export default orderService
-
 
