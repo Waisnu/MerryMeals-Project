@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <title>Geocoding and Maps JS API</title>
+  <style>
+    #map {
+      margin: auto;
+      height: 600px;
+      width: 600px;
+    }
+
+    .center {
+      text-align: center;
+    }
+  </style>
+  <script>
+    $(document).ready(() => {
+      $("#address").on('focusout', () => {
+        geocodeAddress();
+      })
+    })
+
+    $(document).ready(() => {
+      $("#address").keypress(() => {
+        initAutocomplete();
+      })
+    })
+    
+    function geocodeAddress() {
+      var geocoder = new google.maps.Geocoder();
+      var address = document.getElementById("address").value;
+
+      geocoder.geocode({ address: address }, function (results, status) {
+        if (status === "OK") {
+          var location = results[0].geometry.location;
+          var latitude = location.lat();
+          var longitude = location.lng();
+
+          document.getElementById("latitude").value = latitude;
+          document.getElementById("longitude").value = longitude;
+
+          checkMealType();
+        } else {
+          alert(
+            "Geocode was not successful for the following reason: " + status
+          );
+        }
+      });
+    }
+
+    function reverseGeocodeAddress() {
+      var geocoder = new google.maps.Geocoder();
+      var latitude = parseFloat(document.getElementById('latitude').value);
+      var longitude = parseFloat(document.getElementById('longitude').value);
+
+      if (isNaN(latitude) || isNaN(longitude)) {
+        alert('Please enter valid coordinates.');
+        return;
+      }
+
+      var location = new google.maps.LatLng(latitude, longitude);
+
+      geocoder.geocode({ location: location }, function (results, status) {
+        if (status === 'OK') {
+          if (results[0]) {
+            var formattedAddress = results[0].formatted_address;
+            var modifiedAddress = formattedAddress.replace(/\s\w+\+\w+/g, '');
+
+            document.getElementById('address').value = modifiedAddress;
+
+            console.log(results);
+          } else {
+            alert('No results found.');
+          }
+        } else {
+          alert('Geocoder failed due to: ' + status);
+        }
+      });
+    }
+
+    // Haversine formula
+    function getDistance(lat1, lng1, lat2, lng2) {
+      const R = 6371e3;
+      const phi1 = toRadians(lat1);
+      const phi2 = toRadians(lat2);
+      const deltaPhi = toRadians(lat2 - lat1);
+      const deltaLambda = toRadians(lng2 - lng1);
+
+      const a = Math.sin(deltaPhi / 2) * Math.sin(deltaPhi / 2) +
+        Math.cos(phi1) * Math.cos(phi2) *
+        Math.sin(deltaLambda / 2) * Math.sin(deltaLambda / 2);
+      const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+
+      const distance = R * c; // Distance in meters
+      return distance / 1000; // Distance in kilometers
+    }
+
+    function toRadians(degrees) {
+      return degrees * Math.PI / 180;
+    }
+
+    function checkMealType() {
+      var latitude = parseFloat(document.getElementById('latitude').value);
+      var longitude = parseFloat(document.getElementById('longitude').value);
+
+      var serviceCenters = [
+        { lat: 1.3057, lng: 103.854662, name: "Service Center 1" },
+        { lat: 1.317464, lng: 103.852855, name: "Service Center 2" },
+        { lat: 1.307019, lng: 103.838267, name: "Service Center 3" },
+        { lat: 1.29027, lng: 103.826469, name: "Service Center 4" },
+        { lat: 1.298787, lng: 103.86254, name: "Service Center 5" }
+      ];
+
+      var mealType = "";
+      var serviceCenter = "";
+      var distances = [];
+      serviceCenters.forEach((center) => {
+        var distance = (getDistance(latitude, longitude, center.lat, center.lng));
+        distances.push({ distance: distance, center: center.name });
+      })
+
+      distances.sort((a, b) => a.distance - b.distance);
+
+      if (distances[0].distance <= 10) {
+        document.getElementById('mealType').value = "Hot Meal";
+      } else {
+        document.getElementById('mealType').value = "Frozen Meal";
+      }
+
+      document.getElementById('serviceCenter').value = distances[0].center;
+    }
+  </script>
+  </script>
+</head>
+
+<body>
+  <!-- <h1>Facebook Login API Demo</h1>
+    <div class="container unauthenticated">
+      <a href="/login">
+        <button type="button" class="btn btn-primary">
+          Login with Facebook
+        </button>
+      </a>
+    </div>
+    <div class="container authenticated" style="display: none">
+      Logged in as: <span id="user"></span>
+      <button onClick="logout()" class="btn btn-danger">Logout</button>
+    </div> -->
+
+  <h1>Maps</h1>
+  <div id="map"></div>
+  <br>
+  <div class="center">
+    <form>
+      <label for="address">Address:</label>
+      <input type="text" id="address" name="address" autocomplete="off" />
+      <div id="suggestions"></div>
+      <br>
+      <!-- <button type="button" onclick="geocodeAddress()">Geocode</button> -->
+      <button type="button" onclick="reverseGeocodeAddress()">Reverse Geocode</button>
+      <!-- <button type="button" onclick="checkMealType()">Check Meal Type</button> -->
+    </form>
+    <br>
+    <div>
+      <label for="latitude">Latitude:</label>
+      <input type="text" id="latitude" />
+
+      <label for="longitude">Longitude:</label>
+      <input type="text" id="longitude" />
+    </div>
+
+    <br>
+    <div>
+      <label for="Meal Type">Meal Type</label>
+      <input type="text" id="mealType">
+
+      <label for="Service Center">Service Center</label>
+      <input type="text" id="serviceCenter">
+    </div>
+  </div>
+  <script>
+    function initMap() {
+      var singapore = { lat: 1.3521, lng: 103.8198 };
+      var map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 12,
+        center: singapore,
+      });
+
+      var serviceCenters = [
+        { lat: 1.3057, lng: 103.854662, name: "Service Center 1" },
+        { lat: 1.317464, lng: 103.852855, name: "Service Center 2" },
+        { lat: 1.307019, lng: 103.838267, name: "Service Center 3" },
+        { lat: 1.29027, lng: 103.826469, name: "Service Center 4" },
+        { lat: 1.298787, lng: 103.86254, name: "Service Center 5" }
+      ];
+
+      serviceCenters.forEach(function (serviceCenter) {
+        var marker = new google.maps.Marker({
+          position: {
+            lat: parseFloat(serviceCenter.lng),
+            lng: parseFloat(serviceCenter.lat),
+          },
+          map: map,
+          title: serviceCenter.name,
+        });
+      });
+    }
+  </script>
+</body>
+
+</html>

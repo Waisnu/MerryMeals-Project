@@ -1,0 +1,7 @@
+mow:
+  auth:
+    tokenSecret: kYp3s6v9y/B?E(H+MbQeThWmZq4t7w!z%C*F)J@NcRfUjXn2r5u8x/A?D(G+KaPd
+    tokenExpirationMsec: 86400000
+  oauth2:
+    authorizedRedirectUris:
+      - http://localhost:3000/oauth2/redirect
