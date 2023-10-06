@@ -44,37 +44,37 @@ export const PVProfile = (props) => {
   };
 
   
-  // reverseGeocodeAddress(
-  //   props.currentUser.volunteer.latitude,
-  //   props.currentUser.volunteer.longitude
-  // );
+  reverseGeocodeAddress(
+    props.currentUser.volunteer.latitude,
+    props.currentUser.volunteer.longitude
+  );
 
-  // function reverseGeocodeAddress(latitude, longitude) {
-  //   var geocoder = new window.google.maps.Geocoder();
-  //   var lat = parseFloat(latitude);
-  //   var long = parseFloat(longitude);
+  function reverseGeocodeAddress(latitude, longitude) {
+    var geocoder = new window.google.maps.Geocoder();
+    var lat = parseFloat(latitude);
+    var long = parseFloat(longitude);
 
-  //   if (isNaN(lat) || isNaN(long)) {
-  //     toast.error("Please enter valid coordinates.");
-  //     return;
-  //   }
+    if (isNaN(lat) || isNaN(long)) {
+      toast.error("Please enter valid coordinates.");
+      return;
+    }
 
-  //   var location = new window.google.maps.LatLng(lat, long);
+    var location = new window.google.maps.LatLng(lat, long);
 
-  //   geocoder.geocode({ location: location }, function (results, status) {
-  //     if (status === "OK") {
-  //       if (results[0]) {
-  //         var formattedAddress = results[0].formatted_address;
-  //         var modifiedAddress = formattedAddress.replace(/\s\w+\+\w+/g, "");
-  //         setAddress(modifiedAddress);
-  //       } else {
-  //         toast.error("No results found.");
-  //       }
-  //     } else {
-  //       toast.error("Please enter a valid address!");
-  //     }
-  //   });
-  // }
+    geocoder.geocode({ location: location }, function (results, status) {
+      if (status === "OK") {
+        if (results[0]) {
+          var formattedAddress = results[0].formatted_address;
+          var modifiedAddress = formattedAddress.replace(/\s\w+\+\w+/g, "");
+          setAddress(modifiedAddress);
+        } else {
+          toast.error("No results found.");
+        }
+      } else {
+        toast.error("Please enter a valid address!");
+      }
+    });
+  }
 
   // Function to open the edit profile modal
   const handleEditProfile = () => {
