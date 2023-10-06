@@ -39,6 +39,8 @@ const MealOrderMap = () => {
     }
   }, []);
 
+  
+
   if (loadError) {
     return <div>Error loading Google Maps</div>;
   }

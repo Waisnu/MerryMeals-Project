@@ -8,7 +8,7 @@ import CheckoutForm from "./CheckoutForm";
 // Make sure to call loadStripe outside of a component’s render to avoid
 // recreating the Stripe object on every render.
 // This is your test publishable API key.
-const stripePromise = loadStripe("pk_test_51NEmeMBNuzGVILr3t0YWtukJGTlnX69QIMtQzbUXzDHkQRX9R7nlvFDZC7FfjMDdnk0xnlGm9JBV5OdQOuJHdQtu00WAP9FvXP");
+const stripePromise = loadStripe("pk_test_51NxgDOLYpHb6bvDTjiTXyxNzbLITUVC2HMIvLuFHOeBcrcaBXyGxObL2clm1HXLJwuvBmd1Rcb7ejtJ4V9A92SLv00LNxaOLqh");
 
 export default function PaymentComponent() {
   const [clientSecret, setClientSecret] = useState("");

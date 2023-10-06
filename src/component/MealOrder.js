@@ -98,9 +98,9 @@ const MealOrder = (props) => {
     
     const serviceCenters = [
       { name: "Center A", latitude: 7.1210119, longitude: 125.6204733}, //Davao branch , Ezekiel Zafra waz here.
-      { name: "Center B", latitude: 10.338588, longitude: 123.912023 }, //Cebu Branch / UC-Banilad lyn
-      { name: "Center C", latitude: 10.350335, longitude: 123.948586 }, //Vincent's Area -  Carnivale 
-      { name: "Center B", latitude: 13.447059, longitude: 121.701677}, //Manila Branch - si marc? tahi...
+        { name: "Center B", latitude: 10.338588, longitude: 123.912023 }, //Cebu Branch / UC-Banilad lyn
+       { name: "Center C", latitude: 10.350335, longitude: 123.948586 }, //Vincent's Area -  Carnivale 
+        { name: "Center D", latitude: 13.447059, longitude: 121.701677}, //Manila Branch - si marc? tahi...
       
       // Add more service centers as needed
     ];

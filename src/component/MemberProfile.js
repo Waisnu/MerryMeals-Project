@@ -20,10 +20,10 @@ export const MemberProfile = (props) => {
     var lat = parseFloat(latitude);
     var long = parseFloat(longitude);
 
-    if (isNaN(lat) || isNaN(long)) {
-      toast.error("Please enter valid coordinates.");
-      return;
-    }
+    // if (isNaN(lat) || isNaN(long)) {
+    //   toast.error("Please enter valid coordinates.");
+    //   return;
+    // }
 
     var location = new window.google.maps.LatLng(lat, long);
 
