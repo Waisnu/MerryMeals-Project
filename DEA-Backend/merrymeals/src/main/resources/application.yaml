@@ -2,7 +2,7 @@ spring:
   datasource:
     url: jdbc:mysql://localhost:3306/mow_backend
     username: root
-    password: kim122101
+    password: M!nat0123321
   jpa:
     properties:
       hibernate.dialect: org.hibernate.dialect.MySQL5Dialect
