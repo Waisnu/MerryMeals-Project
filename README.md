@@ -1,70 +1,69 @@
-# Getting Started with Create React App
+# Merry Meals Project 🍔🥗🥤
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to the Merry Meals project! This project is designed to provide a convenient meal ordering system based on your proximity to the food pickup location. It's a simple yet efficient way to ensure that everyone gets their meals at the right temperature.
 
-## Available Scripts
+## Table of Contents
+- [About Merry Meals](#about-merry-meals)
+- [Stack](#stack)
+- [Preview](#preview)
+- [Usage](#usage)
+- [Disclaimer](#disclaimer)
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## About Merry Meals
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Merry Meals is a web-based application that offers a unique solution for meal delivery. The primary logic behind Merry Meals is the geographical proximity of the user to the food pickup location. Here's how it works:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Users located within a 10-kilometer radius from the pickup location can order hot meals.
+- Users located beyond the 10-kilometer radius will be delivered cold meals. 🌡️❄️
 
-### `npm test`
+This approach ensures that users receive their meals at the optimal temperature, enhancing their dining experience.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Stack
 
-### `npm run build`
+Merry Meals is built using the following technologies:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **Frontend**: React ⚛️
+- **Backend**: Java ☕, Spring Boot 🍃
+- **Database**: MySQL 🐬
+- **HTTP Requests**: Axios 🌐
+- **Version Control**: Git 📜
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Preview
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![Home](Images/Home.PNG)
+*Home Page*
 
-### `npm run eject`
+![Admin](Images/Admin.PNG)
+*Admin Dashboard*
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+![Donor](Images/Donor.PNG)
+*Donor Dashboard*
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![Login](Images/Login.PNG)
+*Login Page*
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+![Order](Images/Order.PNG)
+*Order Page*
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Usage
 
-## Learn More
+To use Merry Meals, follow these steps:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. Clone the repository to your local machine.
+2. Set up the database by importing the SQL schema provided.
+3. Configure the backend by updating the Spring Boot application properties.
+4. Run the backend server.
+5. Navigate to the frontend directory and run the React application.
+6. Access the web application in your browser.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Feel free to explore the codebase and customize it to your needs. Merry Meals is an educational project, and some of the ideas, designs, and logic are inspired by the web development community. 🌐💻
 
-### Code Splitting
+## Disclaimer
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+This project is for educational purposes only. It serves as a demonstration of various technologies and concepts in web development. The ideas, designs, and logic in this project may have been inspired by the work of others in the web development community. We acknowledge and appreciate the contributions of the broader web development community to the field. 🙏
 
-### Analyzing the Bundle Size
+If you have any questions or suggestions, please feel free to reach out.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Happy coding! 🚀
