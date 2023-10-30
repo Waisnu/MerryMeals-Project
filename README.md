@@ -24,7 +24,7 @@ This approach ensures that users receive their meals at the optimal temperature,
 
 Merry Meals is built using the following technologies: 
 
-- **Frontend**: React ⚛️
+- **Frontend**: React ⚛️ , Boostrap 
 - **Backend**: Java ☕, Spring Boot 🍃
 - **Database**: MySQL 🐬
 - **HTTP Requests**: Axios 🌐
